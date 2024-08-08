@@ -26,6 +26,6 @@ module.exports = [
     },
   },
   {
-    ignores: ['node_modules/', 'dist/', 'log/', 'public/'],
+    ignores: ['node_modules/', 'dist/', 'logs/', 'public/'],
   },
 ]

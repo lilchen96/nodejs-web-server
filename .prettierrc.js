@@ -18,6 +18,6 @@ module.exports = {
   proseWrap: 'preserve', //使用默认的执行标准
   htmlWhitespaceSensitivity: 'css', //根据显示样式决定html要不要折行
   vueIndentScriptAndStyle: false, //vue 文件中的 script 和 style 内不用缩进
-  endOfLine: 'lf', //换行符使用 lf
+  // endOfLine: 'lf', //换行符使用 lf
   embeddedLanguageFormatting: 'auto', //格式化内嵌代码
 }

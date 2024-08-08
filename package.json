@@ -2,6 +2,7 @@
   "name": "nodejs-web-server",
   "version": "0.1.0",
   "private": true,
+  "bin": "./src/bin/www",
   "scripts": {
     "dev": "cross-env NODE_ENV=development nodemon --config nodemon.json",
     "dev:test": "cross-env NODE_ENV=test nodemon --config nodemon.json",
@@ -9,12 +10,24 @@
     "start": "cross-env NODE_ENV=production pm2 start ecosystem.config.js",
     "start:test": "cross-env NODE_ENV=test pm2 start ecosystem.config.js",
     "start:development": "cross-env NODE_ENV=development pm2 start ecosystem.config.js",
-    "sequelize:auto": "node sequelizeAuto.js",
+    "sequelize:auto": "node .sequelize.auto.js",
+    "build": "pkg .",
     "lint:fix": "eslint --fix .",
     "prepare": "husky"
   },
   "lint-staged": {
     "*.{js,mjs,cjs}": "eslint --fix"
+  },
+  "pkg": {
+    "assets": [
+      "src/config/*.yml",
+      ".env.*"
+    ],
+    "targets": [
+      "node16-win-x64",
+      "node16-linux-x64"
+    ],
+    "outputPath": "dist/"
   },
   "dependencies": {
     "config": "^3.3.12",
@@ -35,6 +48,8 @@
     "winston-daily-rotate-file": "^5.0.0"
   },
   "devDependencies": {
+    "@commitlint/cli": "^19.4.0",
+    "@commitlint/config-conventional": "^19.2.2",
     "@eslint/js": "^9.7.0",
     "cross-env": "^7.0.3",
     "eslint": "^9.7.0",

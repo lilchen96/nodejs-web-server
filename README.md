@@ -1,4 +1,5 @@
 ### 代码结构
+
 四层架构
 Router
 Controller
@@ -6,6 +7,7 @@ Service
 Dao
 
 ### 错误处理
+
 自定义错误类 util/models CustomError
 自定义中间件 middleware/errorHandle -错误抛出
 --进入 errorHandle
@@ -14,18 +16,19 @@ Dao
 ----否：设置 http 状态码 500，进入 koa-onerror 处理，自动返回错误信息 html
 
 ### 响应规范处理
+
 自定义错误类 util/models CustomResponse
 自定义中间件 middleware/responseHandle
 
 Controller 层设置 ctx.body
 -ctx.body = xxx
---返回 CustomResponse {"code":200,"data":xxx,"msg":"操作成功!"} 
--不设置
+--返回 CustomResponse {"code":200,"data":xxx,"msg":"操作成功!"} -不设置
 --返回 CustomResponse {"code":200,"data":null,"msg":"操作成功!"}
 -ctx.body = CustomResponse
 --返回设置的 CustomResponse
 
 ### 日志
+
 todo: traceId(链路追踪)
 
 基于 winston
@@ -41,35 +44,58 @@ todo: traceId(链路追踪)
 例如：logger.error("Server error %s", err);
 
 ### 包管理器
+
 推荐pnpm
 
 ### eslint
+
 配置文件: ./eslint.config.js
 已自动接入prettier
 
 ### prettier
+
 配置文件: ./.prettierrc.js
 
 ### 环境变量
+
 cross-env: 跨操作系统设置变量
 dotenv: 注入环境变量
 
 ### 配置文件
+
 config: 自动识别NODE_ENV环境变量注入配置信息
 文件: ./src/config/xxxx.yml
 
 # 开发环境 nodemon
+
 配置文件: ./nodemon.json
 
 # 生产环境 pm2
+
 配置文件: ./ecosystem.config.js
 
 # 数据库
+
 mysql
 ORM工具: Sequelize
 配置文件: ./src/core/db/mysql
 Sequelize模型: ./src/project/model
 自动生成Sequelize模型: 基于sequelize-auto; 命令: npm run sequelize:auto
+
+# 打包可执行文件
+
+pkg
+打包后文件输出在./dist
+windows包: nodejs-web-server-win.exe
+linux包: nodejs-web-server-linux
+运行方式:
+windows:
+CMD:
+`set NODE_ENV=xxxx && ./nodejs-web-server-win.exe`
+PowerShell:
+`$env:NODE_ENV="xxxx"; ./nodejs-web-server-win.exe`
+linux:
+`NODE_ENV=xxxx ./nodejs-web-server-win.exe`
 
 # husky
 
