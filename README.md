@@ -66,15 +66,15 @@ dotenv: 注入环境变量
 config: 自动识别NODE_ENV环境变量注入配置信息
 文件: ./src/config/xxxx.yml
 
-# 开发环境 nodemon
+### 开发环境 nodemon
 
 配置文件: ./nodemon.json
 
-# 生产环境 pm2
+### 生产环境 pm2
 
 配置文件: ./ecosystem.config.js
 
-# 数据库
+### 数据库
 
 mysql
 ORM工具: Sequelize
@@ -82,7 +82,7 @@ ORM工具: Sequelize
 Sequelize模型: ./src/project/model
 自动生成Sequelize模型: 基于sequelize-auto; 命令: npm run sequelize:auto
 
-# 打包可执行文件
+### 打包可执行文件
 
 pkg
 打包后文件输出在./dist
@@ -101,10 +101,10 @@ linux:
 
 # 待完成
 
-### pkg 打包
-
 ### gitcz
 
 ### 静态资源服务器
+
+### docker
 
 未实现 traceId
