@@ -36,6 +36,7 @@ app.use(require('koa-static')(__dirname + '/public'))
 app.use(async (ctx, next) => {
   logRequestStart(ctx)
   await next()
+  console.log(1111)
 })
 
 // routes
