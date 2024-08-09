@@ -1,4 +1,4 @@
-### 代码结构
+## 代码结构
 
 四层架构
 
@@ -10,7 +10,7 @@ Service
 
 Dao
 
-### 错误处理
+## 错误处理
 
 自定义错误类 util/models CustomError
 
@@ -26,7 +26,7 @@ Dao
 
 ----否：设置 http 状态码 500，进入 koa-onerror 处理，自动返回错误信息 html
 
-### 响应规范处理
+## 响应规范处理
 
 自定义错误类 util/models CustomResponse
 
@@ -46,9 +46,7 @@ Controller层设置 ctx.body
 
 --返回设置的 CustomResponse
 
-### 日志
-
-todo: traceId(链路追踪)
+## 日志
 
 基于 winston
 
@@ -70,41 +68,41 @@ todo: traceId(链路追踪)
 
 例如：logger.error("Server error %s", err);
 
-### 包管理器
+## 包管理器
 
 推荐pnpm
 
-### eslint
+## eslint
 
 配置文件: ./eslint.config.js
 
 已自动接入prettier
 
-### prettier
+## prettier
 
 配置文件: ./.prettierrc.js
 
-### 环境变量
+## 环境变量
 
 cross-env: 跨操作系统设置变量
 
 dotenv: 注入环境变量
 
-### 配置文件
+## 配置文件
 
 config: 自动识别NODE_ENV环境变量注入配置信息
 
 文件: ./src/config/xxxx.yml
 
-### 开发环境 nodemon
+## 开发环境 nodemon
 
 配置文件: ./nodemon.json
 
-### 生产环境 pm2
+## 生产环境 pm2
 
 配置文件: ./ecosystem.config.js
 
-### 数据库
+## 数据库
 
 mysql
 
@@ -118,7 +116,7 @@ Sequelize模型: ./src/project/model
 
 `npm run sequelize:auto`
 
-### 打包可执行文件
+## 打包可执行文件
 
 pkg
 
@@ -144,15 +142,15 @@ linux:
 
 `NODE_ENV=xxxx ./nodejs-web-server-win.exe`
 
-### commitlint校验
+## commitlint校验
 
 配置文件: ./commitlint.config
 
-### husky
+## husky
 
 提交前 eslint + commitlint
 
-### docker部署
+## docker部署
 
 配置文件: ./Dockerfile
 
@@ -172,8 +170,8 @@ linux:
 
 -d：在后台运行容器
 
-# 待完成
+## 待完成
 
-### 静态资源服务器
+静态资源服务器
 
-未实现 traceId
+日志traceId链路追踪
