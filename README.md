@@ -97,14 +97,28 @@ PowerShell:
 linux:
 `NODE_ENV=xxxx ./nodejs-web-server-win.exe`
 
-# husky
+### commitlint校验
+
+配置文件: ./commitlint.config
+
+### husky
+
+提交前 eslint + commitlint
+
+### docker部署
+
+配置文件: ./Dockerfile
+构建镜像:
+`docker build -t [镜像名称]:[镜像标签] .`
+运行容器:
+`docker run -p [主机映射端口]:3000 -e TZ=Asia/Shanghai -e NODE_ENV=[环境变量] -v [主机映射路径]:/app/logs -itd --name [容器名称] [镜像名称]`
+注释:
+-i：保持标准输入打开
+-t：分配一个伪终端
+-d：在后台运行容器
 
 # 待完成
 
-### gitcz
-
 ### 静态资源服务器
-
-### docker
 
 未实现 traceId
