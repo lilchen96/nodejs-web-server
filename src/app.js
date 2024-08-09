@@ -7,20 +7,26 @@ const json = require('koa-json')
 const onerror = require('koa-onerror')
 const bodyparser = require('koa-bodyparser')
 // const koaLogger = require("koa-logger");
-
+const static = require('koa-static')
 const responseHandle = require('./core/middleware/responseHandle')
 const router = require('./core/middleware/router')
 const errorHandle = require('./core/middleware/errorHandle')
 const { logger } = require('./core/logger')
 const { logRequestStart } = require('./core/logger/util')
+const path = require('path')
+
+app.use(static(path.join(__dirname, '..', 'public')))
 
 // error handler
 onerror(app)
+
+// 静态文件中间件
 
 app.use(json()) // 美化response json
 
 // 自定义middleware
 app.use(errorHandle)
+
 app.use(responseHandle)
 
 app.use(
@@ -30,13 +36,11 @@ app.use(
 )
 
 // app.use(koaLogger());
-app.use(require('koa-static')(__dirname + '/public'))
 
 // logger
 app.use(async (ctx, next) => {
   logRequestStart(ctx)
   await next()
-  console.log(1111)
 })
 
 // routes

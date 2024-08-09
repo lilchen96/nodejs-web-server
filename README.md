@@ -170,8 +170,18 @@ linux:
 
 -d：在后台运行容器
 
-## 待完成
+## 静态资源服务器
 
-静态资源服务器
+koa-static实现
+
+启动在 ./public 下
+
+例子:
+
+文件: ./public/images/picture_1.png
+
+访问url: [后端服务地址]/images/picture_1.png
+
+## 待完成
 
 日志traceId链路追踪
