@@ -7,7 +7,7 @@ const info = {
   password: 'root',
   database: 'nodejs-web-server',
   dialect: 'mysql',
-  directory: './sequelize-auto-models',
+  directory: './.sequelize-auto-models',
   tables: undefined,
   skipTables: [],
 }

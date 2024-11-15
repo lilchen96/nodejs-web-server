@@ -24,4 +24,4 @@ yarn.lock
 
 src/config/local-*.yml
 
-sequelize-auto-models
+.sequelize-auto-models

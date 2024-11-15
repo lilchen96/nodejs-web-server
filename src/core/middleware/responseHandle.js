@@ -3,7 +3,7 @@ const CustomResponse = require('../model/CustomResponse')
 
 const responseHandle = async (ctx, next) => {
   await next()
-  if (!(ctx.body instanceof CustomResponse)) {
+  if (!(ctx.body instanceof CustomResponse) && !ctx._originalResponse) {
     ctx.body = new CustomResponse({
       code: 200,
       data: ctx.body ?? null,
